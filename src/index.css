@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #0f0f0f;
+}
+
+/* Custom glassmorphism */
+.glass {
+  @apply backdrop-blur-xl bg-white/5 border border-white/10 shadow-2xl;
+}
+
+/* Blobs background */
+.blob {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.blob div {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #3b82f6, #8b5cf6, #06b6d4);
+  filter: blur(80px);
+  opacity: 0.6;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+.blob div:nth-child(1) { top: 10%; left: 10%; width: 200px; height: 200px; animation-delay: 0s; }
+.blob div:nth-child(2) { top: 60%; right: 10%; width: 150px; height: 150px; animation-delay: 2s; }
+.blob div:nth-child(3) { bottom: 20%; left: 20%; width: 250px; height: 250px; animation-delay: 4s; }
